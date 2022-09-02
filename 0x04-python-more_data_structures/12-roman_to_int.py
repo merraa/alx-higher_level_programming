@@ -1,21 +1,28 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if roman_string is int or roman_string is None:
-        return 0
-    add = 0
-    for i in roman_string:
-        if i == 'I':
-            add += 1
-        if i == 'V':
-            add += 5
-        if i == 'X':
-            add += 10
-        if i == 'L':
-            add += 50
-        if i == 'C':
-            add += 100
-        if i == 'D':
-            add += 500
-        if i == 'M':
-            add += 1000
-    return add
+    num = 0
+    if not roman_string or roman_string is None:
+        return (num)
+    if not isinstance(roman_string, str):
+        return (num)
+    d_roman = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }
+    lgth = len(roman_string)
+    for i in range(lgth):
+        c = roman_string[i]
+        if d_roman.get(c) is not None:
+            if (i + 1) != lgth and d_roman[c] < d_roman[roman_string[i + 1]]:
+                num += d_roman[c] * -1
+            else:
+                num += d_roman[c]
+        else:
+            num = 0
+            break
+     return (num)
