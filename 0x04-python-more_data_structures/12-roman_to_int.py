@@ -6,14 +6,14 @@ def roman_to_int(roman_string):
     if not isinstance(roman_string, str):
         return (num)
     d_roman = {
-        "I": 1,
-        "V": 5,
-        "X": 10,
-        "L": 50,
-        "C": 100,
-        "D": 500,
-        "M": 1000
-    }
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000
+            }
     lgth = len(roman_string)
     for i in range(lgth):
         c = roman_string[i]
@@ -25,4 +25,4 @@ def roman_to_int(roman_string):
         else:
             num = 0
             break
-     return (num)
+    return (num)
